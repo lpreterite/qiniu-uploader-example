@@ -17,7 +17,7 @@
                         <button type="button" v-if="progress.blockCount>1 && progress.stage === 'cancel'" @click="upload(progress.fileKey)">继续</button>
                     </span>
                 </div>
-                <div class="progress__meta" v-if="progress.uploading">上传进度：{{progress.value}}% - {{progress.loaded}}kb / {{progress.total}}kb —— 当前块：{{progress.blockIndex}} 当前阶段：{{progress.stage}}</div>
+                <div class="progress__meta" v-if="progress.uploading">上传进度：{{progress.value}}% - {{(progress.loaded/1024/1024).toFixed(2)}}mb / {{(progress.total/1024/1024).toFixed(2)}}mb —— 当前块：{{progress.blockIndex}} 当前阶段：{{progress.stage}}</div>
                 <div class="progress__meta" v-if="!progress.uploading && progress.errors.length > 0">{{ progress.errors[0].message }}</div>
             </li>
         </ul>
@@ -31,7 +31,7 @@ export default {
     data(){
         return {
             uploader,
-            token: "fqW-wERKESARsZ9_8-sZCvRhLNqNOIgC3ijJsG-9:SN4ozAQViWGzQI60IykeC5MEbmo=:eyJzY29wZSI6Imhla2F0ZSIsImRlYWRsaW5lIjoxNTM5ODQ2NjkyfQ==",
+            token: "fqW-wERKESARsZ9_8-sZCvRhLNqNOIgC3ijJsG-9:-mLuebsjx2-GC7GSDXax39hNOq4=:eyJzY29wZSI6Imhla2F0ZSIsImRlYWRsaW5lIjoxNTM5ODUzMzI5fQ==",
             loading: false,
             fileset: []
         }
